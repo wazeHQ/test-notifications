@@ -1,5 +1,5 @@
 worker_processes 8
-base_path = "/home/rails/rails_projects/rails_projects/production"
+base_path = "/home/rails/rails_projects/test_notifications/production"
 working_directory "#{base_path}/current"
 
 # This loads the application in the master process before forking

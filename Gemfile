@@ -7,9 +7,11 @@ gem 'rails', '3.2.5'
 
 gem 'sqlite3'
 gem 'devise', '~> 2.1'
-  gem 'capistrano'
-  gem 'capistrano-unicorn'
-  gem 'rvm-capistrano'
+gem 'capistrano'
+gem 'capistrano-unicorn'
+gem 'rvm-capistrano'
+gem 'execjs'
+gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -32,7 +34,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
