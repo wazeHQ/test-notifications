@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  created_by: 1
+  title: MyString
+  description: MyText
+  votes_up: 1
+  is_active: false
+  lon: 1.5
+  lat: 1.5
+
+two:
+  created_by: 1
+  title: MyString
+  description: MyText
+  votes_up: 1
+  is_active: false
+  lon: 1.5
+  lat: 1.5

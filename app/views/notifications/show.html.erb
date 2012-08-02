@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Created by:</b>
+  <%= @notification.created_by %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @notification.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @notification.description %>
+</p>
+
+<p>
+  <b>Votes up:</b>
+  <%= @notification.votes_up %>
+</p>
+
+<p>
+  <b>Is active:</b>
+  <%= @notification.is_active %>
+</p>
+
+<p>
+  <b>Lon:</b>
+  <%= @notification.lon %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @notification.lat %>
+</p>
+
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>
