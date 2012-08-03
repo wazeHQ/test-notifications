@@ -1,7 +1,14 @@
 Notifications::Application.routes.draw do
   devise_for :users
 
-  resources :notifications
+  resources :notifications do
+    collection do
+      get :updates, :action => :updates
+    end
+    member do
+      put :upvote, :action => :vote_up
+    end
+  end
 
   root :to => 'notifications#index'
 

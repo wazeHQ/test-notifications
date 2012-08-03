@@ -22,6 +22,29 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def updates
+    @notifications = Notification.all_since(params[:since] || '00000')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @notifications }
+    end
+  end
+
+  def vote_up
+    @notification = Notification.find(params[:id])
+
+    respond_to do |format|
+      if @notification.vote_up
+        format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
+        format.json { render json: @notification }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @notification.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /notifications/new
   # GET /notifications/new.json
   def new
@@ -42,6 +65,9 @@ class NotificationsController < ApplicationController
   # POST /notifications.json
   def create
     @notification = Notification.new(params[:notification])
+    @notification.is_active = true
+    @notification.created_by = current_user.id
+    @notification.votes_up = 0
 
     respond_to do |format|
       if @notification.save
@@ -62,7 +88,7 @@ class NotificationsController < ApplicationController
     respond_to do |format|
       if @notification.update_attributes(params[:notification])
         format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: @notification }
       else
         format.html { render action: "edit" }
         format.json { render json: @notification.errors, status: :unprocessable_entity }
@@ -74,11 +100,12 @@ class NotificationsController < ApplicationController
   # DELETE /notifications/1.json
   def destroy
     @notification = Notification.find(params[:id])
-    @notification.destroy
+    @notification.is_active = false
+    @notification.save
 
     respond_to do |format|
       format.html { redirect_to notifications_url }
-      format.json { head :no_content }
+      format.json { render json: @notification }
     end
   end
 end
