@@ -66,7 +66,7 @@ class NotificationsController < ApplicationController
   def create
     @notification = Notification.new(params[:notification])
     @notification.is_active = true
-    @notification.created_by = current_user.id
+    @notification.created_by = 1
     @notification.votes_up = 0
 
     respond_to do |format|
