@@ -17,8 +17,8 @@ listen "/var/run/unicorn/test_notifications.sock;", :backlog => 64
 pid "#{base_path}/shared/pids/unicorn.pid"
 
 # Set the path of the log files inside the log folder of the testapp
-stderr_path "/var/log/nginx/unicorn.test_notifications.stderr.log"
-stdout_path "/var/log/nginx/unicorn.test_notifications.stdout.log"
+stderr_path "#{base_path}/shared/log/unicorn.stderr.log"
+stdout_path "#{base_path}/shared/log/unicorn.stdout.log"
 
 before_fork do |server, worker|
 # This option works in together with preload_app true setting
