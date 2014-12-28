@@ -20,9 +20,6 @@ pid "#{base_path}/shared/pids/unicorn.pid"
 stderr_path "/var/log/nginx/unicorn.test_notifications.stderr.log"
 stdout_path "/var/log/nginx/unicorn.test_notifications.stdout.log"
 
-default_run_options[:pty] = true
-default_run_options[:shell] = '/bin/bash --login'
-
 before_fork do |server, worker|
 # This option works in together with preload_app true setting
 # What is does is prevent the master process from holding

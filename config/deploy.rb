@@ -6,6 +6,9 @@ end
 
 after 'unicorn:reload', :kill_old_master
 
+default_run_options[:pty] = true
+default_run_options[:shell] = '/bin/bash --login'
+
 # set :rvm_ruby_string, 'ruby-1.9.3-p0@rails_3_1_1'
 
 default_run_options[:pty] = true
