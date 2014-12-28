@@ -12,7 +12,7 @@ timeout 45
 
 # This is where we specify the socket.
 # We will point the upstream Nginx module to this socket later on
-listen "/var/run/unicorn/test_notifications.sock;", :backlog => 64
+listen "/var/run/unicorn/test_notifications.sock", :backlog => 64
 
 pid "#{base_path}/shared/pids/unicorn.pid"
 
