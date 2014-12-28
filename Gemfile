@@ -10,6 +10,7 @@ gem 'devise', '~> 2.1'
 gem 'capistrano'
 gem 'capistrano-unicorn'
 gem 'rvm-capistrano'
+gem 'capistrano-rbenv'
 gem 'execjs'
 gem 'therubyracer'
 
