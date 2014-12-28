@@ -6,7 +6,10 @@ end
 
 after 'unicorn:reload', :kill_old_master
 
-set :rvm_ruby_string, 'ruby-1.9.3-p0@rails_3_1_1'
+# set :rvm_ruby_string, 'ruby-1.9.3-p0@rails_3_1_1'
+
+default_run_options[:pty] = true
+default_run_options[:shell] = '/bin/bash --login'
 
 def location location_name, server_name, rails_env=:production, url_root="/", &block
   task location_name do
@@ -21,7 +24,7 @@ def location location_name, server_name, rails_env=:production, url_root="/", &b
     set :unicorn_env, rails_env
 
 #    set :deploy_to, "/home/linqmap/rails_projects/adman2#{url_root}"
-    set :deploy_to, "~/rails_projects/test_notifications#{url_root}"
+    set :deploy_to, "~/rails_projects/test-notifications#{url_root}"
 
     if [:production].include? rails_env
       load 'deploy/assets'
@@ -46,7 +49,7 @@ set :scm, :git
 set :deploy_via, :copy
 
 # location :staging, '79.125.117.51', :production, "/staging"
-location :staging, '54.247.120.115', :production, '/production'
+location :staging, 'biz.gcp.wazestg.com', :production, '/production'
 # location :israel, '79.125.117.51', :production, "/production"
 #location :il, '79.125.25.212', :production, '/production'
 #location :world, '46.137.120.208', :production, '/production'
