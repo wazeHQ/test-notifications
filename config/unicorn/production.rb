@@ -1,5 +1,5 @@
 worker_processes 8
-base_path = "/home/rails/rails_projects/test-notifications/production"
+base_path = "/home/rails/rails_projects/test_notifications/production"
 working_directory "#{base_path}/current"
 
 # This loads the application in the master process before forking
@@ -12,13 +12,13 @@ timeout 45
 
 # This is where we specify the socket.
 # We will point the upstream Nginx module to this socket later on
-listen "/var/run/unicorn/test-notifications.sock;", :backlog => 64
+listen "/var/run/unicorn/test_notifications.sock;", :backlog => 64
 
 pid "#{base_path}/shared/pids/unicorn.pid"
 
 # Set the path of the log files inside the log folder of the testapp
-stderr_path "/var/log/nginx/unicorn.test-notifications.stderr.log"
-stdout_path "/var/log/nginx/unicorn.test-notifications.stdout.log"
+stderr_path "/var/log/nginx/unicorn.test_notifications.stderr.log"
+stdout_path "/var/log/nginx/unicorn.test_notifications.stdout.log"
 
 before_fork do |server, worker|
 # This option works in together with preload_app true setting

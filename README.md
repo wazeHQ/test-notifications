@@ -1,4 +1,4 @@
-test-notifications
+test_notifications
 ==================
 
-test-notifications
+test_notifications
