@@ -24,7 +24,7 @@ def location location_name, server_name, rails_env=:production, url_root="/", &b
     set :unicorn_env, rails_env
 
 #    set :deploy_to, "/home/linqmap/rails_projects/adman2#{url_root}"
-    set :deploy_to, "~/rails_projects/test_notifications#{url_root}"
+    set :deploy_to, "/home/rails/rails_projects/test_notifications#{url_root}"
 
     if [:production].include? rails_env
       load 'deploy/assets'
